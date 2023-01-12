@@ -1,9 +1,17 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
+
 import App from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe('App', () => {
+  it('should render the app', () => {
+    render(<App />);
+    const header = screen.getByRole('heading', { name: 'Models App' });
+    expect(header).toBeInTheDocument();
+  });
+
+  it('should render the header', () => {
+    render(<App />);
+    const app = screen.getByRole('heading', { name: 'Eggplant Models App' });
+    expect(app).toBeInTheDocument();
+  });
 });
