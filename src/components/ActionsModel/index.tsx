@@ -6,7 +6,7 @@ import Button from '../../Button';
 import { Container, Box } from './style';
 
 const ActionsModel: React.FC<ActionsModelProps> = ({
-  edit,
+  isEdit,
   values,
   editModel,
   setValue,
@@ -28,7 +28,7 @@ const ActionsModel: React.FC<ActionsModelProps> = ({
 
   return (
     <Container>
-      <form onSubmit={edit ? editModelHandler : addModelHandler}>
+      <form onSubmit={isEdit ? editModelHandler : addModelHandler}>
         <TextInput
           data-testid="model_name"
           aria-label="model name"
@@ -59,10 +59,10 @@ const ActionsModel: React.FC<ActionsModelProps> = ({
             fullWidth
             size="large"
             disabled={disableBtn}
-            aria-label={edit ? 'update model' : 'addn model'}
-            data-testid={edit ? 'update_model_btn' : 'add_model_btn'}
+            aria-label={isEdit ? 'update model' : 'addn model'}
+            data-testid={isEdit ? 'update_model_btn' : 'add_model_btn'}
           >
-            {edit ? 'Update Model' : 'Add Model'}
+            {isEdit ? 'Update Model' : 'Add Model'}
           </Button>
         </Box>
       </form>

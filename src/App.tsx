@@ -14,7 +14,7 @@ function App() {
     last_run_status: 'Passed',
   });
   const [models, setModels] = useState<Model[]>([]);
-  const [edit, setEdit] = useState<boolean>(false);
+  const [isEdit, setEdit] = useState<boolean>(false);
   const [editModel, setEditModel] = useState<null | Model | undefined>(null);
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [searchModels, setSearchModels] = useState<Model[]>([]);
@@ -71,9 +71,8 @@ function App() {
           .includes(searchTerm.toLowerCase());
       });
       setSearchModels(newModel);
-    } else {
-      setSearchModels(models);
     }
+    setSearchModels(models);
   };
 
   return (
@@ -84,7 +83,7 @@ function App() {
 
         <ActionsModel
           values={values}
-          edit={edit}
+          isEdit={isEdit}
           editModel={editModel}
           setValue={setValue}
           editModelHandler={editModelHandler}
